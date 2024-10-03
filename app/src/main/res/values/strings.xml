@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EAD_ECommerce_App</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="see_all">See All</string>
 </resources>
