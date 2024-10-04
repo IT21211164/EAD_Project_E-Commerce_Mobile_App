@@ -2,4 +2,9 @@
     <string name="app_name">EAD_ECommerce_App</string>
     <string name="recommendation">Recommendation</string>
     <string name="see_all">See All</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="orders">Orders</string>
+    <string name="explorer">Explorer</string>
 </resources>
