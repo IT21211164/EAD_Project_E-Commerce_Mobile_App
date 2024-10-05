@@ -36,7 +36,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initRecommended() {
-        binding.progressBarCategories.visibility=View.VISIBLE
+        binding.progressBarRecommendation.visibility=View.VISIBLE
         viewModel.recommended.observe(this, Observer {
             binding.recyclerViewRecommendation.layoutManager=GridLayoutManager(this@MainActivity,2)
             binding.recyclerViewRecommendation.adapter=RecommendedAdapter(it)
