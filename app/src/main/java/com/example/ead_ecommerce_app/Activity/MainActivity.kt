@@ -7,11 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.ead_ecommerce_app.Adapter.CategoryAdapter
+import com.example.ead_ecommerce_app.Adapter.RecommendedAdapter
 import com.example.ead_ecommerce_app.Adapter.SliderAdapter
 import com.example.ead_ecommerce_app.Model.SliderModel
 import com.example.ead_ecommerce_app.R
@@ -29,6 +32,17 @@ class MainActivity : BaseActivity() {
 
         initBanner()
         initCategory()
+        initRecommended()
+    }
+
+    private fun initRecommended() {
+        binding.progressBarCategories.visibility=View.VISIBLE
+        viewModel.recommended.observe(this, Observer {
+            binding.recyclerViewRecommendation.layoutManager=GridLayoutManager(this@MainActivity,2)
+            binding.recyclerViewRecommendation.adapter=RecommendedAdapter(it)
+            binding.progressBarRecommendation.visibility=View.GONE
+        })
+        viewModel.loadRecommended()
     }
 
     private fun initCategory(){
