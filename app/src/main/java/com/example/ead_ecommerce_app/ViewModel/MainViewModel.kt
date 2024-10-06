@@ -27,55 +27,77 @@ class MainViewModel():ViewModel() {
     val categories:LiveData<MutableList<CategoryModel>> = _category
     val recommended:LiveData<MutableList<ItemsModel>> = _recommended
 
-    // Retrofit service setup
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.8.100:8082/api/")  // Base URL for the IIS server
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+//    // Retrofit service setup
+//    private val retrofit = Retrofit.Builder()
+//        .baseUrl("http://192.168.8.100:8082/api/")  // Base URL for the IIS server
+//        .addConverterFactory(GsonConverterFactory.create())
+//        .build()
+//
+//    private val itemService = retrofit.create(ProductService::class.java)
+//
+//    fun loadRecommended() {
+//        // Make API call to fetch the recommended items
+//        itemService.getRecommendedItems().enqueue(object : Callback<List<ItemsModel>> {
+//            override fun onResponse(call: Call<List<ItemsModel>>, response: Response<List<ItemsModel>>) {
+//                if (response.isSuccessful) {
+//                    val items = response.body() ?: emptyList()
+//                    _recommended.value = items.toMutableList()
+//                } else {
+//                    Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
+//                    _recommended.value = mutableListOf()  // Empty the list on failure
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<List<ItemsModel>>, t: Throwable) {
+//                Log.e("API", "API call failed: ${t.message}")
+//                _recommended.value = mutableListOf()  // Empty the list on failure
+//            }
+//        })
+//    }
 
-    private val itemService = retrofit.create(ProductService::class.java)
-
-    fun loadRecommended() {
-        // Make API call to fetch the recommended items
-        itemService.getRecommendedItems().enqueue(object : Callback<List<ItemsModel>> {
-            override fun onResponse(call: Call<List<ItemsModel>>, response: Response<List<ItemsModel>>) {
-                if (response.isSuccessful) {
-                    val items = response.body() ?: emptyList()
-                    _recommended.value = items.toMutableList()
-                } else {
-                    Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
-                    _recommended.value = mutableListOf()  // Empty the list on failure
+    fun loadFiltered(id:String){
+        val Ref =  firebaseDatabase.getReference("Items")
+        val query:Query=Ref.orderByChild("categoryId").equalTo(id)
+        query.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<ItemsModel>()
+                for(childSnapshot in snapshot.children){
+                    val list = childSnapshot.getValue(ItemsModel::class.java)
+                    if(list != null){
+                        lists.add(list)
+                    }
                 }
+                _recommended.value = lists
             }
 
-            override fun onFailure(call: Call<List<ItemsModel>>, t: Throwable) {
-                Log.e("API", "API call failed: ${t.message}")
-                _recommended.value = mutableListOf()  // Empty the list on failure
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
             }
+
         })
     }
 
-//    fun loadRecommended(){
-//        val Ref =  firebaseDatabase.getReference("Items")
-//        val query:Query=Ref.orderByChild("showRecommended").equalTo(true)
-//        query.addListenerForSingleValueEvent(object : ValueEventListener{
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                val lists = mutableListOf<ItemsModel>()
-//                for(childSnapshot in snapshot.children){
-//                    val list = childSnapshot.getValue(ItemsModel::class.java)
-//                    if(list != null){
-//                        lists.add(list)
-//                    }
-//                }
-//                _recommended.value = lists
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//
-//        })
-//    }
+    fun loadRecommended(){
+        val Ref =  firebaseDatabase.getReference("Items")
+        val query:Query=Ref.orderByChild("showRecommended").equalTo(true)
+        query.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val lists = mutableListOf<ItemsModel>()
+                for(childSnapshot in snapshot.children){
+                    val list = childSnapshot.getValue(ItemsModel::class.java)
+                    if(list != null){
+                        lists.add(list)
+                    }
+                }
+                _recommended.value = lists
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
 
 
     fun loadCategory(){

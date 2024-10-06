@@ -11,19 +11,19 @@ import com.example.ead_ecommerce_app.Model.ItemsModel
 import com.example.ead_ecommerce_app.databinding.ViewholderCategoryBinding
 import com.example.ead_ecommerce_app.databinding.ViewholderRecommendationBinding
 
-class RecommendedAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter<RecommendedAdapter.Viewholder>() {
+class ListItemsAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter<ListItemsAdapter.Viewholder>() {
 
     class Viewholder(val binding: ViewholderRecommendationBinding) :RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecommendedAdapter.Viewholder {
+    ): ListItemsAdapter.Viewholder {
         val binding=ViewholderRecommendationBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return Viewholder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecommendedAdapter.Viewholder, position: Int) {
+    override fun onBindViewHolder(holder: ListItemsAdapter.Viewholder, position: Int) {
         val item = items[position]
 
         with(holder.binding){
