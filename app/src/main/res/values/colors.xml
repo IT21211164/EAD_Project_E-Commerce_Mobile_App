@@ -8,6 +8,7 @@
 
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF6500</color>
+    <color name="lightorange">#59FF6500</color>
     <color name="blue">#1E3E62</color>
     <color name="darkblue">#0B192C</color>
     <color name="grey">#919191</color>

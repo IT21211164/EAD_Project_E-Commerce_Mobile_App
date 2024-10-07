@@ -31,6 +31,7 @@ class ListItemsActivity : BaseActivity() {
 
     private fun initList() {
         binding.apply {
+            binding.backBtn.setOnClickListener{finish()}
             progressBarList.visibility=View.VISIBLE
             viewModel.recommended.observe(this@ListItemsActivity, Observer {
                 viewList.layoutManager=GridLayoutManager(this@ListItemsActivity,2)
