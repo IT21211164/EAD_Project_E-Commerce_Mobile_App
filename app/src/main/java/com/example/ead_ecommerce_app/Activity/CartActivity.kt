@@ -58,40 +58,40 @@ class CartActivity : BaseActivity() {
                 method1Text.setTextColor(getResources().getColor(R.color.orange))
                 methodSubText1.setTextColor(getResources().getColor(R.color.orange))
 
-                method2.setBackgroundResource(R.drawable.grey_bg_selected)
-                methodIcon2.imageTintList= ColorStateList.valueOf(ContextCompat.getColor(this@CartActivity,R.color.black))
-                method2Text.setTextColor(getResources().getColor(R.color.black))
-                methodSubText2.setTextColor(getResources().getColor(R.color.black))
+//                method2.setBackgroundResource(R.drawable.grey_bg_selected)
+//                methodIcon2.imageTintList= ColorStateList.valueOf(ContextCompat.getColor(this@CartActivity,R.color.black))
+//                method2Text.setTextColor(getResources().getColor(R.color.black))
+//                methodSubText2.setTextColor(getResources().getColor(R.color.black))
 
             }
 
-            method2.setOnClickListener{
-                method2.setBackgroundResource(R.drawable.orange_bg_selected)
-                methodIcon2.imageTintList= ColorStateList.valueOf(ContextCompat.getColor(this@CartActivity,R.color.orange))
-                method2Text.setTextColor(getResources().getColor(R.color.orange))
-                methodSubText2.setTextColor(getResources().getColor(R.color.orange))
-
-                method1.setBackgroundResource(R.drawable.grey_bg_selected)
-                methodIcon1.imageTintList= ColorStateList.valueOf(ContextCompat.getColor(this@CartActivity,R.color.black))
-                method1Text.setTextColor(getResources().getColor(R.color.black))
-                methodSubText1.setTextColor(getResources().getColor(R.color.black))
-
-            }
+//            method2.setOnClickListener{
+////                method2.setBackgroundResource(R.drawable.orange_bg_selected)
+////                methodIcon2.imageTintList= ColorStateList.valueOf(ContextCompat.getColor(this@CartActivity,R.color.orange))
+////                method2Text.setTextColor(getResources().getColor(R.color.orange))
+////                methodSubText2.setTextColor(getResources().getColor(R.color.orange))
+//
+//                method1.setBackgroundResource(R.drawable.grey_bg_selected)
+//                methodIcon1.imageTintList= ColorStateList.valueOf(ContextCompat.getColor(this@CartActivity,R.color.black))
+//                method1Text.setTextColor(getResources().getColor(R.color.black))
+//                methodSubText1.setTextColor(getResources().getColor(R.color.black))
+//
+//            }
         }
     }
 
     private  fun calculatorCart(){
         val percentTax=0.02
-        val delivery=10.0
-        tax=Math.round((managmentCart.getTotalFee()*percentTax)*100) / 100.0
-        val total = Math.round((managmentCart.getTotalFee() + tax + delivery) * 100)/100
-        val itemTotal = Math.round(managmentCart.getTotalFee()*100) / 100
+        val delivery=500.00
+        //tax=Math.round((managmentCart.getTotalFee()*percentTax)*100) / 100.0
+        val total = Math.round((managmentCart.getTotalFee()  + delivery) * 100)/100.00
+        val itemTotal = Math.round(managmentCart.getTotalFee()*100) / 100.00
 
         with(binding){
-            totalFeeText.text="$$itemTotal"
-            taxText.text="$$tax"
-            deliveryFeeText.text="$$delivery"
-            totalText.text="$$total"
+            totalFeeText.text="Rs ${itemTotal}0"
+            //taxText.text="Rs $tax"
+            deliveryFeeText.text="Rs ${delivery}0"
+            totalText.text="Rs ${total}0"
         }
     }
 }
