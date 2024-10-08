@@ -17,7 +17,7 @@ import com.example.ead_ecommerce_app.databinding.ActivityListItemsBinding
 class ListItemsActivity : BaseActivity() {
     private lateinit var binding: ActivityListItemsBinding
     private val viewModel=MainViewModel()
-    private var id:String=""
+    private var category:String=""
     private var title: String=""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,12 +38,12 @@ class ListItemsActivity : BaseActivity() {
                 viewList.adapter=ListItemsAdapter(it)
                 progressBarList.visibility=View.GONE
             })
-            viewModel.loadFiltered(id)
+            viewModel.loadFiltered(category)
         }
     }
 
     private fun getBundle() {
-        id = intent.getStringExtra("id")!!
+        category = intent.getStringExtra("category")!!
         title = intent.getStringExtra("title")!!
 
         binding.categoryText.text=title

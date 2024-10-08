@@ -27,12 +27,12 @@ class ListItemsAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter<L
         val item = items[position]
 
         with(holder.binding){
-            titleText.text=item.title
+            titleText.text=item.product_Name
             price.text="Rs${item.price}"
-            ratingText.text = item.rating.toString()
+
 
             Glide.with(holder.itemView.context)
-                .load(item.picUrl[0])
+                .load(item.image)
                 .into(pic)
 
             root.setOnClickListener{

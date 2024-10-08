@@ -4,26 +4,26 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class ItemsModel(
-//    val id: String,
-//    val product_Name: String,
-//    val product_Category: String,
-//    val vendor_Name: String,
-//    val vendor_Id: String,
-//    val image: String,
-//    val description: String,
-//    val price: Double,
-//    val stock: Int,
-//    val visibility: Boolean
+    val id: String,
+    val product_Name: String,
+    val product_Category: String,
+    val vendor_Name: String,
+    val vendor_Id: String,
+    val image: String,
+    val description: String,
+    val price: Double,
+    val stock: Int,
+    val visibility: Boolean
 
-    var title:String="",
-    var description:String="",
-    var picUrl:ArrayList<String> = ArrayList(),
-    var model:ArrayList<String> = ArrayList(),
-    var price:Double=0.0,
-    var rating:Double=0.0,
-    var numberInCart:Int=0,
-    var showRecommended:Boolean=false,
-    var categoryId:String=""
+//    var title:String="",
+//    var description:String="",
+//    var picUrl:ArrayList<String> = ArrayList(),
+//    var model:ArrayList<String> = ArrayList(),
+//    var price:Double=0.0,
+//    var rating:Double=0.0,
+//    var numberInCart:Int=0,
+//    var showRecommended:Boolean=false,
+//    var categoryId:String=""
 
 //    val id: String="",
 //    val product_Name: String="",
@@ -39,48 +39,48 @@ data class ItemsModel(
 //)
  :Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString().toString(),
-        parcel.readString().toString(),
-        parcel.createStringArrayList() as ArrayList<String>,
-        parcel.createStringArrayList() as ArrayList<String>,
-        parcel.readDouble(),
-        parcel.readDouble(),
-        parcel.readInt(),
-        parcel.readByte() != 0.toByte(),
-        parcel.readString().toString()
 //        parcel.readString().toString(),
 //        parcel.readString().toString(),
-//        parcel.readString().toString(),
-//        parcel.readString().toString(),
-//        parcel.readString().toString(),
-//        parcel.readString().toString(),
-//        parcel.readString().toString(),
+//        parcel.createStringArrayList() as ArrayList<String>,
+//        parcel.createStringArrayList() as ArrayList<String>,
+//        parcel.readDouble(),
 //        parcel.readDouble(),
 //        parcel.readInt(),
-//        parcel.readByte() != 0.toByte()
+//        parcel.readByte() != 0.toByte(),
+//        parcel.readString().toString()
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readString().toString(),
+        parcel.readDouble(),
+        parcel.readInt(),
+        parcel.readByte() != 0.toByte()
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(title)
-        parcel.writeString(description)
-        parcel.writeStringList(picUrl)
-        parcel.writeStringList(model)
-        parcel.writeDouble(price)
-        parcel.writeDouble(rating)
-        parcel.writeInt(numberInCart)
-        parcel.writeByte(if (showRecommended) 1 else 0)
-        parcel.writeString(categoryId)
-//        parcel.writeString(id)
-//        parcel.writeString(product_Name)
-//        parcel.writeString(product_Category)
-//        parcel.writeString(vendor_Name)
-//        parcel.writeString(vendor_Id)
-//        parcel.writeString(image)
+//        parcel.writeString(title)
 //        parcel.writeString(description)
+//        parcel.writeStringList(picUrl)
+//        parcel.writeStringList(model)
 //        parcel.writeDouble(price)
-//        parcel.writeInt(stock)
-//        parcel.writeByte(if (visibility) 1 else 0)
+//        parcel.writeDouble(rating)
+//        parcel.writeInt(numberInCart)
+//        parcel.writeByte(if (showRecommended) 1 else 0)
+//        parcel.writeString(categoryId)
+        parcel.writeString(id)
+        parcel.writeString(product_Name)
+        parcel.writeString(product_Category)
+        parcel.writeString(vendor_Name)
+        parcel.writeString(vendor_Id)
+        parcel.writeString(image)
+        parcel.writeString(description)
+        parcel.writeDouble(price)
+        parcel.writeInt(stock)
+        parcel.writeByte(if (visibility) 1 else 0)
     }
 
     override fun describeContents(): Int {

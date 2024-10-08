@@ -36,30 +36,23 @@
                         android:id="@+id/textView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Welcome Back"
+                        android:text="Welcome to"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Binod"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:text="TechCove"
+                        android:textColor="@color/blue"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    app:srcCompat="@drawable/bell_icon" />
-
-                <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     app:srcCompat="@drawable/search_icon" />
 
             </LinearLayout>
@@ -123,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Categories"
-                    android:textColor="@color/black"
+                    android:textColor="@color/blue"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -175,8 +168,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/recommendation"
-                    android:textColor="@color/black"
+                    android:text="@string/allproducts"
+                    android:textColor="@color/blue"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -247,8 +240,8 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         app:srcCompat="@drawable/btn_1" />
@@ -261,7 +254,7 @@
                         android:text="@string/explorer"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -272,8 +265,8 @@
 
                     <ImageView
 
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         app:srcCompat="@drawable/btn_4" />
@@ -286,7 +279,7 @@
                         android:text="@string/orders"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -297,8 +290,8 @@
 
                     <ImageView
 
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         app:srcCompat="@drawable/btn_3" />
@@ -311,7 +304,7 @@
                         android:text="@string/wishlist"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -323,8 +316,8 @@
 
                     <ImageView
 
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         app:srcCompat="@drawable/btn_2" />
@@ -337,7 +330,7 @@
                         android:text="@string/cart"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -348,8 +341,8 @@
 
                     <ImageView
 
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="8dp"
                         app:srcCompat="@drawable/btn_5" />
@@ -362,7 +355,7 @@
                         android:text="@string/profile"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:textSize="10sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 

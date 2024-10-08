@@ -35,7 +35,7 @@ class CategoryAdapter(val items:MutableList<CategoryModel>):
         holder.binding.textTitle.text=item.title
 
         Glide.with(holder.itemView.context)
-            .load(item.picUrl)
+            .load(item.image)
             .into(holder.binding.pic)
 
         if(selectedPosition==position){
@@ -83,7 +83,7 @@ class CategoryAdapter(val items:MutableList<CategoryModel>):
             }
             Handler(Looper.getMainLooper()).postDelayed({
                 val intent = Intent(holder.itemView.context,ListItemsActivity::class.java).apply {
-                    putExtra("id",item.id.toString())
+                    putExtra("category",item.category_Name)
                     putExtra("title",item.title)
                 }
                 ContextCompat.startActivity(holder.itemView.context,intent,null)

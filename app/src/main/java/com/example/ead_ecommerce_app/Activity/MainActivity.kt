@@ -34,14 +34,14 @@ class MainActivity : BaseActivity() {
         initBanner()
         initCategory()
         initRecommended()
-        initBottomMenu()
+//        initBottomMenu()
     }
 
-    private fun initBottomMenu() {
-        binding.cartBtn.setOnClickListener{
-            startActivity(Intent(this@MainActivity, CartActivity::class.java))
-        }
-    }
+//    private fun initBottomMenu() {
+//        binding.cartBtn.setOnClickListener{
+//            startActivity(Intent(this@MainActivity, CartActivity::class.java))
+//        }
+//    }
 
     private fun initRecommended() {
         binding.progressBarRecommendation.visibility=View.VISIBLE
