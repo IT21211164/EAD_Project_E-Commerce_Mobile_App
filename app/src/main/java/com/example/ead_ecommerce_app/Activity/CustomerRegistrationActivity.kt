@@ -1,3 +1,12 @@
+// ---------------------------------------------------------------------------
+// File: CustomerRegistrationActivity.kt
+// Author: IT21189494
+// Date Created: 2024.09.20
+// Description: Customer Registration Activity
+// Version: 1.0.0
+// ---------------------------------------------------------------------------
+
+
 package com.example.ead_ecommerce_app.Activity
 
 import android.content.Intent

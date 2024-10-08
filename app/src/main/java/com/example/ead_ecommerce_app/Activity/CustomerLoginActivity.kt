@@ -1,3 +1,11 @@
+// ---------------------------------------------------------------------------
+// File: CustomerLoginActivity.kt
+// Author: IT21189494
+// Date Created: 2024.09.20
+// Description: BaseActivity
+// Version: 1.0.0
+// ---------------------------------------------------------------------------
+
 package com.example.ead_ecommerce_app.Activity
 
 import android.content.Intent

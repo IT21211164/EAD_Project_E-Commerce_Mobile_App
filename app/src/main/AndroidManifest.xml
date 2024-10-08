@@ -14,32 +14,21 @@
         android:theme="@style/Theme.ChangeFontStyle.NoActionBar"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
         <activity
-            android:name=".Activity.CustomerLoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.CustomerRegistrationActivity"
-            android:exported="true">
+            android:name=".Activity.CustomerProfileActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-<!--        <activity-->
-<!--            android:name=".Activity.CustomerLoginActivity"-->
-<!--            android:exported="true" >-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-<!--        <activity-->
-<!--            android:name=".Activity.CustomerRegistrationActivity"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".Activity.CustomerLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.CustomerRegistrationActivity"
+            android:exported="true" />
         <activity
             android:name=".Activity.BaseActivity"
             android:exported="false" />
