@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.ead_ecommerce_app.Adapter.PicAdapter
 import com.example.ead_ecommerce_app.Adapter.SelectModelAdapter
+import com.example.ead_ecommerce_app.Helper.CartManagement
+import com.example.ead_ecommerce_app.Model.CartModel
 import com.example.ead_ecommerce_app.Model.ItemsModel
 import com.example.ead_ecommerce_app.databinding.ActivityDetailBinding
 
@@ -14,6 +16,7 @@ class DetailActivity : BaseActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var item: ItemsModel
     private var numberOrder=1
+    private lateinit var cartManagement: CartManagement
 //    private lateinit var managmentCart: ManagmentCart
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +24,9 @@ class DetailActivity : BaseActivity() {
         binding=ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
 //        managmentCart= ManagmentCart(this)
+        cartManagement=CartManagement(this)
 
         getBundle()
        // initList()
@@ -58,6 +63,15 @@ class DetailActivity : BaseActivity() {
     private fun getBundle() {
         item = intent.getParcelableExtra("object")!!
 
+        val newItem = CartModel(
+            id = "",
+            product_Name = item.product_Name,
+            price = item.price,
+            number_Of_Items = 1,
+            image = item.image,
+        )
+
+
         binding.titleText.text = item.product_Name
         binding.descriptionText.text = item.description
         binding.priceText.text = "Rs "+item.price+"0"
@@ -67,14 +81,13 @@ class DetailActivity : BaseActivity() {
             .load(item.image)
             .into(binding.img)
 //        binding.ratingText.text = "${item.rating} Rating"
-//        binding.addCartBtn.setOnClickListener{
-//            item.numberInCart = numberOrder
-//            managmentCart.insertItem(item)
-//        }
-//        binding.backBtn.setOnClickListener{ finish() }
-//        binding.cartBtn.setOnClickListener{
-//           startActivity(Intent(this@DetailActivity, CartActivity::class.java))
-//        }
+        binding.addCartBtn.setOnClickListener{
+            cartManagement.insertItem(newItem)
+        }
+        binding.backBtn.setOnClickListener{ finish() }
+        binding.cartBtn.setOnClickListener{
+           startActivity(Intent(this@DetailActivity, CartActivity::class.java))
+        }
 
 
 

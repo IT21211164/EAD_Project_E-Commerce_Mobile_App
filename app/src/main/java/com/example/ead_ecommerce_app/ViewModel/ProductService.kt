@@ -1,5 +1,6 @@
 package com.example.ead_ecommerce_app.ViewModel
 
+import com.example.ead_ecommerce_app.Model.CartModel
 import com.example.ead_ecommerce_app.Model.CategoryModel
 import com.example.ead_ecommerce_app.Model.ItemsModel
 import retrofit2.Call
@@ -15,4 +16,7 @@ interface ProductService {
 
     @GET("product/category/{product_Category}")
     fun getProductsByCategory(@Path("product_Category") product_Category: String): Call<List<ItemsModel>>
+
+    @GET("cart")  // The endpoint to get all items
+    fun getCart(): Call<List<CartModel>>
 }

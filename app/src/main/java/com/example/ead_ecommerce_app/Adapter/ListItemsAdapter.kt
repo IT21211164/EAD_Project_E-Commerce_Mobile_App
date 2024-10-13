@@ -28,7 +28,7 @@ class ListItemsAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter<L
 
         with(holder.binding){
             titleText.text=item.product_Name
-            price.text="Rs${item.price}"
+            price.text="LKR ${item.price}"
 
 
             Glide.with(holder.itemView.context)

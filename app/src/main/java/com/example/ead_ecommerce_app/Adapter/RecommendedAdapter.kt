@@ -28,7 +28,7 @@ class RecommendedAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter
 
         with(holder.binding){
             titleText.text=item.product_Name
-            price.text="Rs ${item.price}0"
+            price.text="LKR ${item.price}0"
 
 
             Glide.with(holder.itemView.context)

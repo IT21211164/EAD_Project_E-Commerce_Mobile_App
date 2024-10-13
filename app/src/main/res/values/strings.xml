@@ -9,9 +9,9 @@
     <string name="explorer">Explorer</string>
     <string name="my_cart">My Cart</string>
     <string name="subtotal">Subtotal</string>
-    <string name="fee_delivery">Fee Delivery</string>
+    <string name="fee_delivery">Delivery Fee</string>
     <string name="total_tax">Total Tax</string>
     <string name="payment_method">Payment Method</string>
-    <string name="pay_cash_when_the_item_arrives_at_the_destination">Pay cash when the item\n arrives at the destination</string>
+    <string name="pay_cash_when_the_item_arrives_at_the_destination">Pay cash when the item arrives at the destination</string>
     <string name="make_payment_from_your_online_bank_account">Make payment from your online bank account</string>
 </resources>

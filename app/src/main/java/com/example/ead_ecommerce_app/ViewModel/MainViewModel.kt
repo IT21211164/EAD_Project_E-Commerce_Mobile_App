@@ -4,13 +4,13 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.ead_ecommerce_app.Model.CartModel
 import com.example.ead_ecommerce_app.Model.CategoryModel
 import com.example.ead_ecommerce_app.Model.ItemsModel
 import com.example.ead_ecommerce_app.Model.SliderModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.Query
 import com.google.firebase.database.ValueEventListener
 
 import retrofit2.*
@@ -22,14 +22,17 @@ class MainViewModel():ViewModel() {
     private  val _banner = MutableLiveData<List<SliderModel>>()
     private val _category = MutableLiveData<MutableList<CategoryModel>>()
     private val _recommended = MutableLiveData<MutableList<ItemsModel>>()
+    private val _cart = MutableLiveData<MutableList<CartModel>>()
+
 
     val banners:LiveData<List<SliderModel>> = _banner
     val categories:LiveData<MutableList<CategoryModel>> = _category
     val recommended:LiveData<MutableList<ItemsModel>> = _recommended
+    val cart:LiveData<MutableList<CartModel>> = _cart
 
     // Retrofit service setup
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.43.103:8082/api/")  // Base URL for the IIS server
+        .baseUrl("http://192.168.8.100:8082/api/")  // Base URL for the IIS server
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -105,8 +108,8 @@ class MainViewModel():ViewModel() {
 
 
     fun loadBanners(){
-        val Ref =  firebaseDatabase.getReference("Banner")
-        Ref.addValueEventListener(object:ValueEventListener{
+        val ref =  firebaseDatabase.getReference("Banner")
+        ref.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val lists = mutableListOf<SliderModel>()
                 for(childSnapshot in snapshot.children){
@@ -124,4 +127,33 @@ class MainViewModel():ViewModel() {
 
         })
     }
+
+    //Get art items
+    fun loadCart() {
+        // Make API call to fetch the categories
+        itemService.getCart().enqueue(object : Callback<List<CartModel>> {
+            override fun onResponse(call: Call<List<CartModel>>, response: Response<List<CartModel>>) {
+                if (response.isSuccessful) {
+                    val cart = response.body() ?: emptyList()
+
+                    // Update LiveData with the fetched categories
+                    _cart.value = cart.toMutableList()
+                } else {
+                    Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
+                    _cart.value = mutableListOf()  // Empty the list on failure
+                }
+            }
+
+            override fun onFailure(call: Call<List<CartModel>>, t: Throwable) {
+                Log.e("API", "API call failed: ${t.message}")
+                _cart.value = mutableListOf()  // Empty the list on failure
+            }
+        })
+    }
+
+
+
+
+
+
 }
