@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.example.ead_ecommerce_app.Model.CartModel
+import com.example.ead_ecommerce_app.Model.OrderModel
 import com.example.ead_ecommerce_app.ViewModel.ProductService
 import com.example.project1762.Helper.ChangeNumberItemsListener
 import retrofit2.Call
@@ -43,16 +44,6 @@ class CartManagement(val context: Context) {
             }
         })
     }
-
-    //    fun minusItem(listFood: ArrayList<ItemsModel>, position: Int, listener: ChangeNumberItemsListener) {
-//        if (listFood[position].numberInCart == 1) {
-//            listFood.removeAt(position)
-//        } else {
-//            listFood[position].numberInCart--
-//        }
-//        tinyDB.putListObject("CartList", listFood)
-//        listener.onChanged()
-//    }
 
 
     fun minusItem(item: CartModel,listener: ChangeNumberItemsListener) {
@@ -109,28 +100,6 @@ class CartManagement(val context: Context) {
         })
     }
 
-//    fun plusItem(item: CartModel, listener: ChangeNumberItemsListener) {
-//        item.number_Of_Items++
-//
-//        // Call IIS API to update cart with MongoDB ObjectId
-//        val response = try {
-//            cartService.updateCartItem(item.id, item)
-//        } catch (e: Exception) {
-//            e.printStackTrace()
-//            Log.e("CartUpdateError", "Exception: ${e.message}")
-//            Toast.makeText(context, "Network Error: Failed to update item", Toast.LENGTH_SHORT).show()
-//            return
-//        }
-//
-//        // Check if the update was successful
-//        if (response.isSuccessful) {
-//            // Trigger the UI change if successful
-//            Toast.makeText(context, "updated item", Toast.LENGTH_SHORT).show()
-//            listener.onChanged()
-//        } else {
-//            Toast.makeText(context, "Failed to update item", Toast.LENGTH_SHORT).show()
-//        }
-//    }
 
     //Get art items
     fun loadCart() {
@@ -166,6 +135,43 @@ class CartManagement(val context: Context) {
             fee += item.price * item.number_Of_Items
         }
         return fee
+    }
+
+    fun placeOrder(order: OrderModel) {
+        cartService.createOrder(order).enqueue(object : Callback<OrderModel> {
+            override fun onResponse(call: Call<OrderModel>, response: Response<OrderModel>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(context,"Order created successfully!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context,"Failed to create order!", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<OrderModel>, t: Throwable) {
+                Toast.makeText(context, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    fun placeOrders() {
+        val cartItems = _cart.value
+
+        if (cartItems != null) {
+            for (item in cartItems) {
+                val newOrder = OrderModel(
+                    id = "",
+                    customer_Name = "Binod",
+                    customer_Id = "670c2d64b513b7b6939980ad",
+                    product_Id = item.id,
+                    quantity = item.number_Of_Items,
+                    vendor_Id = item.vendor_Id,
+                    status = "processing",
+                    total = item.price*item.number_Of_Items
+                )
+                placeOrder(newOrder)
+
+            }
+        }
     }
 
 }

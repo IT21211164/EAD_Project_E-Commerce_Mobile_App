@@ -1,6 +1,7 @@
 package com.example.ead_ecommerce_app.Helper
 
 import com.example.ead_ecommerce_app.Model.CartModel
+import com.example.ead_ecommerce_app.Model.OrderModel
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
@@ -20,4 +21,7 @@ interface CartService {
 
     @DELETE("cart/{id}")
     fun removeCartItem(@Path("id") id: String): Call<Void>
+
+    @POST("order")
+    fun createOrder(@Body order: OrderModel): Call<OrderModel>
 }

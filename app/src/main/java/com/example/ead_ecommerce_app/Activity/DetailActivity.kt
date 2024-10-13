@@ -17,48 +17,17 @@ class DetailActivity : BaseActivity() {
     private lateinit var item: ItemsModel
     private var numberOrder=1
     private lateinit var cartManagement: CartManagement
-//    private lateinit var managmentCart: ManagmentCart
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-//        managmentCart= ManagmentCart(this)
         cartManagement=CartManagement(this)
 
         getBundle()
-       // initList()
-
     }
 
-//    private fun initList() {
-//        val modelList = ArrayList<String>()
-//        for (models in item.model){
-//            modelList.add(models)
-//        }
-//
-//        binding.modelList.adapter = SelectModelAdapter(modelList)
-//        binding.modelList.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-//
-//        val picList = ArrayList<String>()
-//        for(imageUrl in item.picUrl){
-//            picList.add(imageUrl)
-//        }
-//
-//        Glide.with(this)
-//            .load(picList[0])
-//            .into(binding.img)
-//
-//        binding.picList.adapter = PicAdapter(picList){selectedImageUrl ->
-//            Glide.with(this)
-//                .load(selectedImageUrl)
-//                .into(binding.img)
-//        }
-//
-//        binding.picList.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
-//    }
 
     private fun getBundle() {
         item = intent.getParcelableExtra("object")!!
@@ -66,6 +35,8 @@ class DetailActivity : BaseActivity() {
         val newItem = CartModel(
             id = "",
             product_Name = item.product_Name,
+            product_Id = item.id,
+            vendor_Id = item.vendor_Id,
             price = item.price,
             number_Of_Items = 1,
             image = item.image,
