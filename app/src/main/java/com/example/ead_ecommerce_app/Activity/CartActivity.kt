@@ -1,20 +1,11 @@
 package com.example.ead_ecommerce_app.Activity
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ead_ecommerce_app.Adapter.CartAdapter
-import com.example.ead_ecommerce_app.Adapter.RecommendedAdapter
 import com.example.ead_ecommerce_app.Helper.CartManagement
-import com.example.ead_ecommerce_app.R
 import com.example.ead_ecommerce_app.ViewModel.MainViewModel
 import com.example.ead_ecommerce_app.databinding.ActivityCartBinding
 import com.example.project1762.Helper.ChangeNumberItemsListener

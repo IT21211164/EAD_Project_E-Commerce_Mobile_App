@@ -6,7 +6,6 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ead_ecommerce_app.R
-import com.example.ead_ecommerce_app.databinding.ViewholderCategoryBinding
 import com.example.ead_ecommerce_app.databinding.ViewholderPicBinding
 
 class PicAdapter(val items:MutableList<String>,private val onImageSelected:(String)->Unit):

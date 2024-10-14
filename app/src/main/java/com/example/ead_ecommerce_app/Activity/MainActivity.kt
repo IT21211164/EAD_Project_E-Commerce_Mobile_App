@@ -3,12 +3,7 @@ package com.example.ead_ecommerce_app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,7 +13,6 @@ import com.example.ead_ecommerce_app.Adapter.CategoryAdapter
 import com.example.ead_ecommerce_app.Adapter.RecommendedAdapter
 import com.example.ead_ecommerce_app.Adapter.SliderAdapter
 import com.example.ead_ecommerce_app.Model.SliderModel
-import com.example.ead_ecommerce_app.R
 import com.example.ead_ecommerce_app.ViewModel.MainViewModel
 import com.example.ead_ecommerce_app.databinding.ActivityMainBinding
 
@@ -40,6 +34,9 @@ class MainActivity : BaseActivity() {
     private fun initBottomMenu() {
         binding.cartBtn.setOnClickListener{
             startActivity(Intent(this@MainActivity, CartActivity::class.java))
+        }
+        binding.ordersBtn.setOnClickListener{
+            startActivity(Intent(this@MainActivity, OrderActivity::class.java))
         }
     }
 

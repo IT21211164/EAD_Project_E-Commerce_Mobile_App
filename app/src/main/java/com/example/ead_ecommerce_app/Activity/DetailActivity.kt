@@ -2,10 +2,7 @@ package com.example.ead_ecommerce_app.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.ead_ecommerce_app.Adapter.PicAdapter
-import com.example.ead_ecommerce_app.Adapter.SelectModelAdapter
 import com.example.ead_ecommerce_app.Helper.CartManagement
 import com.example.ead_ecommerce_app.Model.CartModel
 import com.example.ead_ecommerce_app.Model.ItemsModel

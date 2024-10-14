@@ -3,18 +3,12 @@ package com.example.ead_ecommerce_app.Adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ead_ecommerce_app.Helper.CartManagement
 import com.example.ead_ecommerce_app.Model.CartModel
-import com.example.ead_ecommerce_app.Model.ItemsModel
 import com.example.ead_ecommerce_app.databinding.ViewholderCartBinding
 import com.example.project1762.Helper.ChangeNumberItemsListener
-import kotlinx.coroutines.launch
-
-//import com.example.project1762.Helper.ManagmentCart
 
 class CartAdapter(
     val listItemsSelected:MutableList<CartModel>,
@@ -24,7 +18,6 @@ class CartAdapter(
 
     class Viewholder(val binding: ViewholderCartBinding) : RecyclerView.ViewHolder(binding.root)
 
-    //private val managementCart=ManagmentCart(context)
     private val cartManagement = CartManagement(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.Viewholder {

@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.ead_ecommerce_app.Activity.DetailActivity
 import com.example.ead_ecommerce_app.Model.ItemsModel
-import com.example.ead_ecommerce_app.databinding.ViewholderCategoryBinding
 import com.example.ead_ecommerce_app.databinding.ViewholderRecommendationBinding
 
 class RecommendedAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter<RecommendedAdapter.Viewholder>() {

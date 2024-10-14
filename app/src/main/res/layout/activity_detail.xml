@@ -102,7 +102,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp">
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="32dp">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/addCartBtn"

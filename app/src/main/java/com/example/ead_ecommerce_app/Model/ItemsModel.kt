@@ -14,40 +14,8 @@ data class ItemsModel(
     val price: Double,
     val stock: Int,
     val visibility: Boolean
-
-//    var title:String="",
-//    var description:String="",
-//    var picUrl:ArrayList<String> = ArrayList(),
-//    var model:ArrayList<String> = ArrayList(),
-//    var price:Double=0.0,
-//    var rating:Double=0.0,
-//    var numberInCart:Int=0,
-//    var showRecommended:Boolean=false,
-//    var categoryId:String=""
-
-//    val id: String="",
-//    val product_Name: String="",
-//    val product_Category: String="",
-//    val vendor_Name: String="",
-//    val vendor_Id: String="",
-//    val image: String="",
-//    val description: String="",
-//    val price: Double=0.0,
-//    val stock: Int=0,
-//    val visibility: Boolean=false
-)
-//)
- :Parcelable {
+) :Parcelable {
     constructor(parcel: Parcel) : this(
-//        parcel.readString().toString(),
-//        parcel.readString().toString(),
-//        parcel.createStringArrayList() as ArrayList<String>,
-//        parcel.createStringArrayList() as ArrayList<String>,
-//        parcel.readDouble(),
-//        parcel.readDouble(),
-//        parcel.readInt(),
-//        parcel.readByte() != 0.toByte(),
-//        parcel.readString().toString()
         parcel.readString().toString(),
         parcel.readString().toString(),
         parcel.readString().toString(),
@@ -62,15 +30,6 @@ data class ItemsModel(
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-//        parcel.writeString(title)
-//        parcel.writeString(description)
-//        parcel.writeStringList(picUrl)
-//        parcel.writeStringList(model)
-//        parcel.writeDouble(price)
-//        parcel.writeDouble(rating)
-//        parcel.writeInt(numberInCart)
-//        parcel.writeByte(if (showRecommended) 1 else 0)
-//        parcel.writeString(categoryId)
         parcel.writeString(id)
         parcel.writeString(product_Name)
         parcel.writeString(product_Category)
