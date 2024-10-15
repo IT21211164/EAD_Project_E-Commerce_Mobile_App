@@ -18,4 +18,11 @@
     <string name="login_signin_btn">Sign In</string>
     <string name="login_register_btn_old">Not Registered Yet? , Sign Up</string>
     <string name="login_register_btn">Not Registered Yet? Sign Up</string>
+    <string name="profile_name_placeholder">John Doe</string>
+    <string name="profile_email_placeholder">johndoe@gmail.com</string>
+    <string name="edit_profile_btn">Edit Profile</string>
+    <string name="t_and_c_btn">Terms And Conditions</string>
+    <string name="policies_btn">Policies</string>
+    <string name="deac_acc_btn">DEACTIVATE ACCOUNT</string>
+    <string name="logout_btn">LOG OUT</string>
 </resources>
