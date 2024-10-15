@@ -22,9 +22,9 @@ class CartManagement(val context: Context) {
         RetrofitClient.apiService.addItemToCart(item).enqueue(object : Callback<CartModel> {
             override fun onResponse(call: Call<CartModel>, response: Response<CartModel>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(context,"Item created successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Added to cart!", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(context,"Failed to create item!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Failed to add cart!", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -130,7 +130,7 @@ class CartManagement(val context: Context) {
         RetrofitClient.apiService.createOrder(order).enqueue(object : Callback<OrderModel> {
             override fun onResponse(call: Call<OrderModel>, response: Response<OrderModel>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(context,"Order created successfully!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context,"Order placed successfully!", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(context,"Failed to create order!", Toast.LENGTH_SHORT).show()
                 }

@@ -1,5 +1,6 @@
 package com.example.ead_ecommerce_app.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -42,6 +43,12 @@ class OrderActivity : BaseActivity() {
         binding.apply {
             backBtn.setOnClickListener{
                 finish()
+            }
+            exploreBtn.setOnClickListener{
+                startActivity(Intent(this@OrderActivity, MainActivity::class.java))
+            }
+            cartBtn.setOnClickListener{
+                startActivity(Intent(this@OrderActivity, CartActivity::class.java))
             }
 
         }

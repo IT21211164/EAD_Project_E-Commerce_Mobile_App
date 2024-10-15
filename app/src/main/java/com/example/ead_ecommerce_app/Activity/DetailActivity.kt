@@ -42,7 +42,7 @@ class DetailActivity : BaseActivity() {
 
         binding.titleText.text = item.product_Name
         binding.descriptionText.text = item.description
-        binding.priceText.text = "Rs "+item.price+"0"
+        binding.priceText.text = "LKR "+item.price+"0"
         binding.vendorText.text = item.vendor_Name
 
         Glide.with(this)

@@ -8,6 +8,7 @@
     <string name="orders">Orders</string>
     <string name="explorer">Explorer</string>
     <string name="my_cart">My Cart</string>
+    <string name="checkout">Order Confirmation</string>
     <string name="my_orders">My Orders</string>
     <string name="subtotal">Subtotal</string>
     <string name="fee_delivery">Delivery Fee</string>

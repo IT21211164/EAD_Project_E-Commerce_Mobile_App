@@ -1,5 +1,6 @@
 package com.example.ead_ecommerce_app.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -27,6 +28,7 @@ class ListItemsActivity : BaseActivity() {
 
         getBundle()
         initList()
+        initBottomMenu()
     }
 
     private fun initList() {
@@ -47,6 +49,18 @@ class ListItemsActivity : BaseActivity() {
         title = intent.getStringExtra("title")!!
 
         binding.categoryText.text=title
+    }
+
+    private fun initBottomMenu() {
+        binding.cartBtn.setOnClickListener{
+            startActivity(Intent(this@ListItemsActivity, CartActivity::class.java))
+        }
+        binding.ordersBtn.setOnClickListener{
+            startActivity(Intent(this@ListItemsActivity, OrderActivity::class.java))
+        }
+        binding.exploreBtn.setOnClickListener{
+            startActivity(Intent(this@ListItemsActivity, MainActivity::class.java))
+        }
     }
 }
 
