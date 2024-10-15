@@ -2,7 +2,9 @@ package com.example.ead_ecommerce_app.ViewModel
 
 import com.example.ead_ecommerce_app.Model.CartModel
 import com.example.ead_ecommerce_app.Model.CategoryModel
+import com.example.ead_ecommerce_app.Model.CustomerModel
 import com.example.ead_ecommerce_app.Model.ItemsModel
+import com.example.ead_ecommerce_app.Model.LoginRequest
 import com.example.ead_ecommerce_app.Model.OrderModel
 import retrofit2.Call
 import retrofit2.http.Body
@@ -53,4 +55,9 @@ interface APIService {
 
     @GET("order/customer/{customer_Id}")
     fun getOrders(@Path("customer_Id") customer_Id: String): Call<List<OrderModel>>
+
+
+    //customer
+    @POST("customer/login")
+    fun login(@Body loginRequest: LoginRequest): Call<CustomerModel>
 }

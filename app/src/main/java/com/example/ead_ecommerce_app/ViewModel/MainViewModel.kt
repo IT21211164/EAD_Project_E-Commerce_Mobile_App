@@ -40,13 +40,13 @@ class MainViewModel():ViewModel() {
                     _recommended.value = items.toMutableList()
                 } else {
                     Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
-                    _recommended.value = mutableListOf()  // Empty the list on failure
+                    _recommended.value = mutableListOf()
                 }
             }
 
             override fun onFailure(call: Call<List<ItemsModel>>, t: Throwable) {
                 Log.e("API", "API call failed: ${t.message}")
-                _recommended.value = mutableListOf()  // Empty the list on failure
+                _recommended.value = mutableListOf()
             }
         })
     }
@@ -62,13 +62,13 @@ class MainViewModel():ViewModel() {
                     _recommended.value = items.toMutableList()
                 } else {
                     Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
-                    _recommended.value = mutableListOf()  // Empty the list on failure
+                    _recommended.value = mutableListOf()
                 }
             }
 
             override fun onFailure(call: Call<List<ItemsModel>>, t: Throwable) {
                 Log.e("API", "API call failed: ${t.message}")
-                _recommended.value = mutableListOf()  // Empty the list on failure
+                _recommended.value = mutableListOf()
             }
         })
     }
@@ -87,13 +87,13 @@ class MainViewModel():ViewModel() {
                     _category.value = categories.toMutableList()
                 } else {
                     Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
-                    _category.value = mutableListOf()  // Empty the list on failure
+                    _category.value = mutableListOf()
                 }
             }
 
             override fun onFailure(call: Call<List<CategoryModel>>, t: Throwable) {
                 Log.e("API", "API call failed: ${t.message}")
-                _category.value = mutableListOf()  // Empty the list on failure
+                _category.value = mutableListOf()
             }
         })
     }
@@ -132,13 +132,13 @@ class MainViewModel():ViewModel() {
                     _cart.value = cart.toMutableList()
                 } else {
                     Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
-                    _cart.value = mutableListOf()  // Empty the list on failure
+                    _cart.value = mutableListOf()
                 }
             }
 
             override fun onFailure(call: Call<List<CartModel>>, t: Throwable) {
                 Log.e("API", "API call failed: ${t.message}")
-                _cart.value = mutableListOf()  // Empty the list on failure
+                _cart.value = mutableListOf()
             }
         })
     }
@@ -155,13 +155,13 @@ class MainViewModel():ViewModel() {
                     _order.value = order.toMutableList()
                 } else {
                     Log.e("API", "Response not successful: ${response.errorBody()?.string()}")
-                    _order.value = mutableListOf()  // Empty the list on failure
+                    _order.value = mutableListOf()
                 }
             }
 
             override fun onFailure(call: Call<List<OrderModel>>, t: Throwable) {
                 Log.e("API", "API call failed: ${t.message}")
-                _order.value = mutableListOf()  // Empty the list on failure
+                _order.value = mutableListOf()
             }
         })
     }
