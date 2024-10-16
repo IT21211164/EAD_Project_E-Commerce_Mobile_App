@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ead_ecommerce_app.R
+import com.example.ead_ecommerce_app.Repository.AuthRepository
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import androidx.core.view.ViewCompat
@@ -24,6 +25,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.widget.AppCompatButton
 
 class CustomerRegistrationActivity : AppCompatActivity() {
+
+    private val authRepository = AuthRepository()
 
     private lateinit var emailLayout: TextInputLayout
     private lateinit var passwordLayout: TextInputLayout
@@ -52,10 +55,34 @@ class CustomerRegistrationActivity : AppCompatActivity() {
             insets
         }
 
+//        findViewById<AppCompatButton>(R.id.button).setOnClickListener {
+//            if (validateInput()) {
+//                // Implement API call here
+//                Toast.makeText(this, "Registration Request Successful\nYour account will be activated by Admin shortly.", Toast.LENGTH_LONG).show()
+//            }
+//        }
+
         findViewById<AppCompatButton>(R.id.button).setOnClickListener {
             if (validateInput()) {
-                // Implement API call here
-                Toast.makeText(this, "Registration Request Successful\nYour account will be activated by Admin shortly.", Toast.LENGTH_LONG).show()
+                val email = emailEt.text.toString().trim()
+                val password = passET.text.toString().trim()
+
+                // Send null values for username, address, and profile_Picture
+                val username = ""
+                val address = ""
+                val profilePicture = ""
+
+                // Call the registration API with email, password, and null values
+                authRepository.register(username, email, password, address, profilePicture) { isSuccess, message ->
+                    if (isSuccess) {
+                        Toast.makeText(this, "Registration Request Successful\\nYour account will be activated by Admin shortly.", Toast.LENGTH_LONG).show()
+                        val intent = Intent(this, CustomerLoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Registration failed: $message", Toast.LENGTH_LONG).show()
+                    }
+                }
             }
         }
 
