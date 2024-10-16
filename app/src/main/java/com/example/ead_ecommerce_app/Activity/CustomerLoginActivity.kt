@@ -22,7 +22,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CustomerLoginActivity : AppCompatActivity() {
+class CustomerLoginActivity : BaseActivity() {
     lateinit var sessionManager: SessionManager
     private lateinit var binding: ActivityCustomerLoginBinding
 
