@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">EAD_ECommerce_App</string>
     <string name="allproducts">All Products</string>
+    <string name="recommendation">Recommendation</string>
     <string name="see_all">See All</string>
     <string name="profile">Profile</string>
     <string name="cart">Cart</string>
@@ -16,4 +17,15 @@
     <string name="payment_method">Payment Method</string>
     <string name="pay_cash_when_the_item_arrives_at_the_destination">Pay cash when the item arrives at the destination</string>
     <string name="make_payment_from_your_online_bank_account">Make payment from your online bank account</string>
+    <string name="sign_up_email_hint">Type Your Email</string>
+    <string name="sign_up_pswd_hint">Type New Password</string>
+    <string name="sign_up_retype_pswd_hint">Re-type New Password</string>
+    <string name="sign_up_confirm_btn">Sign Up</string>
+    <string name="sign_up_already_registered_btn">Already Registered? Sign In</string>
+    <string name="login_email_hint">Type Your Email</string>
+    <string name="login_pswd_hint">Type Your Password</string>
+    <string name="login_forgot_pswd_txt">I forgot my password.</string>
+    <string name="login_signin_btn">Sign In</string>
+    <string name="login_register_btn_old">Not Registered Yet? , Sign Up</string>
+    <string name="login_register_btn">Not Registered Yet? Sign Up</string>
 </resources>
