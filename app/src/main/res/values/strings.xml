@@ -25,4 +25,9 @@
     <string name="policies_btn">Policies</string>
     <string name="deac_acc_btn">DEACTIVATE ACCOUNT</string>
     <string name="logout_btn">LOG OUT</string>
+    <string name="profile_photo_description">Profile Picture</string>
+    <string name="username_hint">Username</string>
+    <string name="email_hint">Email</string>
+    <string name="address_hint">Address</string>
+    <string name="update_btn_txt">Update</string>
 </resources>

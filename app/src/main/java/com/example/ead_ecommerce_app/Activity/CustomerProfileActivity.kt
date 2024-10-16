@@ -59,9 +59,9 @@ class CustomerProfileActivity : AppCompatActivity() {
 
         // Edit Profile Button
         binding.editProfileLayout.setOnClickListener {
-            // Navigate to Edit Profile activity (which is not implemented yet)
-//            val intent = Intent(this, EditProfileActivity::class.java)
-//            startActivity(intent)
+            // Navigate to Edit Profile activity
+            val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
         }
 
         // Deactivate Account Button
@@ -73,6 +73,23 @@ class CustomerProfileActivity : AppCompatActivity() {
         binding.logoutButton.setOnClickListener {
             logOutUser()
         }
+    }
+
+    // Reload user data when the activity is resumed
+    override fun onResume() {
+        super.onResume()
+
+        dbHelper = UserDatabaseHelper(this)
+
+        // Re-fetch the logged-in user from the SQLite database to get updated information
+        loggedInUser = dbHelper.getLoggedInUser() ?: run {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
+
+        // Reload user data when returning to this activity
+        populateUserProfile()
     }
 
     // Function to populate the profile with user data
