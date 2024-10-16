@@ -94,6 +94,20 @@ class UserDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         }
     }
 
+    fun updateUser(user: User): Int {
+        val db = this.writableDatabase
+        val contentValues = ContentValues().apply {
+            put("username", user.username)
+            put("email", user.email)
+            put("password", user.password)  // Only update password if required
+            put("address", user.address)
+            put("profile_Picture", user.profile_Picture)
+        }
+        // Assuming the 'id' is used to uniquely identify the user
+        return db.update("users", contentValues, "id = ?", arrayOf(user.id.toString()))
+    }
+
+
     // Method to delete user session (for logout)
     fun deleteUserSession() {
         val db = this.writableDatabase

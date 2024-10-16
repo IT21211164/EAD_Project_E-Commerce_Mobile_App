@@ -94,7 +94,8 @@ class EditProfileActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     // Update local SQLite database
-                    userDatabaseHelper.addUser(updatedUser)
+                    // userDatabaseHelper.addUser(updatedUser)
+                    userDatabaseHelper.updateUser(updatedUser)
                     Toast.makeText(this@EditProfileActivity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
 
                     // Redirect to CustomerProfileActivity
